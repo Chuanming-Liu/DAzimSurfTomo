@@ -1,0 +1,60 @@
+1. first iteration.
+iter=1
+anisotropy:
+1.1.cal phase velocity map. reference model
+1.2.make refined G matrix.--note: anisotropic kernel (nx-2)*(ny-2)*(nz-1)
+
+make MOD_Gc.true (nx-2)*(ny-2)*(nz-1)
+But.
+Lsen_Vs(nx*ny,kmax,nz-1)---->(nx-2)*(ny-2)*(nz-1)
+Lsen_Gsc(nx*ny,kmax,nz-1)---->(nx-2)*(ny-2)*(nz-1)
+
+forward calculate whole traveltime: 
+Gc,Gs---> G matrix is oringal
+Taa 
+res=obst-Tref_iso-Taa
+
+2. second iteration.
+iter=2.
+isotropic
+cbst=obst-Tpred-Taa
+
+2.1. cal isotropic sensitivity kernel. reference model
+2.2. cal phase velocity map.---reference model.---use the point model--inver for the point dv rather than the layer.
+use the Fang's inversion whole.----result----vsf (new)--
+
+forward calculate whole traveltime: 
+Gc,Gs---> G matrix is updated
+Taa_new: update the G matrix
+res=obst-Tref_iso-Taa_new
+
+
+3. third iteration iter=3
+anisotropy---- same as the first iteration
+cbst=obst-Tpred
+
+3.1. cal phase velcity map using absolute velocity model (vsf)
+3.2. make refined G matrix- update  using relative model---make the vels outside the G_subroutine
+ ----same as the  first iteration.
+
+
+forward calculate whole traveltime: 
+Gc,Gs---> G matrix is updated
+Taa: use the reference G matrix, with updated Gc,Gs
+res=obst-Tref_iso-Taa
+
+
+
+
+About the G matrix calculation.
+subroutine 1. same as Fang's code.  input the reference model vels---> output G matrix (in rw, col) and predicated traveltime of ref model.
+              simplify the mode of Rayleigh wave phase velocity.
+subroutine 2.  calculate the phase velocity map and predicated traveltime using absolute and relative model.
+                       give the G matrix using output dcdL dcdA kernel---with updating A, L values.
+Change
+       1. GaussianLS: swiacth
+	 2. delete DampingE--iw, add zeros
+	 3. Norm calcualate.
+
+
+Change kernel file output only sensitivity of Gcs.

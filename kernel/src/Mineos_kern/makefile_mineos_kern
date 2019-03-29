@@ -1,0 +1,11 @@
+# makefile for mineos_kern
+FC      = ifort
+FFLAGS  = -132 -O4 -C -traceback -zero -save
+PROG    = mineos_kern_dcdL_TI
+OBJ	= minos_bran_reall_kern_TI_dcdL.f
+
+$(PROG): $(OBJ)
+	$(FC) $(FFLAGS) $(OBJ) -o $(PROG)
+clean: 
+	rm -f $(PROG)
+
