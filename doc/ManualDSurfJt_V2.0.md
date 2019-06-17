@@ -103,7 +103,7 @@ In case of a 3D initial velocity model, note we have boundary values included in
 
 ### 6. Output files
 
-####isotropic mode
+#### isotropic mode
 
 1.`DSurfTomo.dat` (grid model)
 
@@ -116,7 +116,7 @@ col 4: Vsv (km/s)
 
 2.`MOD_Ref`: same as `MOD`, which can be used as initial model for joint inversion.
 
-####joint inversion mode (or anisotropic inversion mode) 
+#### joint inversion mode (or anisotropic inversion mode) 
 
 1.`Gc_Gs_model.inv` (layered model)
  
