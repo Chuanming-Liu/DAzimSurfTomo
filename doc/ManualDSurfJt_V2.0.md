@@ -4,7 +4,7 @@ Chuanming Liu (chuanmingliu@foxmail.com) and Huajian Yao (hjyao@ustc.edu.cn)
 
 ### 1. Description
 
-DSurfJt is a Rayleigh wave inversion program which can directly invert Rayleigh wave dispersion data to 3-D depth-dependent Vsv velocity and azimuthal anisotropy, which does not need the conventional intermediate step of tomography. The inversion frame and isotropic inversion part are based on the [DSurfTomo](https://github.com/HongjianFang/DSurfTomo)  with the same initial model and input data format. The fast marching method (Rawlinson et al. 2004) is used to compute Rayleigh wave traveltime and ray paths at each period. DSurfJt includes two inversion mode for isotropic inversion and joint inversion of Vsv and azimuthal anisotropy.  Please refer to our following paper for the details.
+DSurfJt is a Rayleigh wave inversion program which can directly invert Rayleigh wave dispersion data to 3-D depth-dependent Vsv velocity and azimuthal anisotropy, which does not need the conventional intermediate step of tomography. This method was developed at the University of Science and Technology of China.  The inversion frame and isotropic inversion part are based on the [DSurfTomo](https://github.com/HongjianFang/DSurfTomo)  with the same initial model and input data format. The fast marching method (Rawlinson et al. 2004) is used to compute Rayleigh wave traveltime and ray paths at each period. DSurfJt includes two inversion mode for isotropic inversion and joint inversion of Vsv and azimuthal anisotropy.  Please refer to our following paper for the details.
 
 ### 2. Installation
 This program has been tested successfully on Debian and MacOS platforms with gfortran. 
