@@ -4,7 +4,7 @@ FFLAGS  = -O3 -ffixed-line-length-none -ffloat-store\
            -W  -fbounds-check -m64 -mcmodel=medium
 F90SRCS = lsmrDataModule.f90 lsmrblasInterface.f90\
           lsmrblas.f90 lsmrModule.f90 delsph.f90\
-	  aprod.f90 gaussian.f90 MainLS_joint.f90 \
+	  aprod.f90 gaussian.f90 Main_Jt.f90\
 	  CalSigamNorm.f90 CalAzimTraveltime.f90 TikhRegul.f90
 FSRCS =  surfdisp96.f tregn96_subroutine.f
 FMP =   rpathsAzim.f90 FwdAzimuthalAniMap.f90
@@ -13,7 +13,7 @@ all:$(CMD)
 $(CMD):$(OBJS)
 	$(FC) -fopenmp $^ -o $@
 	echo "Make successfully!"
-	mv $(CMD) ../../bin
+	mv $(CMD) ../../bin/
 
 CalSurfG.o: CalSurfG.f90
 	$(FC) -fopenmp $(FFLAGS) -c $<  -o $@		

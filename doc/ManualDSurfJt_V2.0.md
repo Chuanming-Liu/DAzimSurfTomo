@@ -1,6 +1,6 @@
 ## User's Manual for DSurfJt (V2.0)
 
-Chuanming Liu (chuanming.liu@colorado.edu) and Huajian Yao (hjyao@ustc.edu.cn)
+Chuanming Liu (chuanmingliu@foxmail.com) and Huajian Yao (hjyao@ustc.edu.cn)
 
 ### 1. Description
 

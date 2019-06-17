@@ -1,6 +1,6 @@
 ! Direct Inversion for 3-D Azimuthal Anisotropy
 ! V1.1 (2017) Based on Mineos to calculate kernel
-! V1.2 (2019) Based on CPS-tregn96 to calcualte kernel
+! V2.0 (2019) Based on CPS-tregn96 to calcualte kernel
 ! Copyright:
 !    Author: Chuanming Liu (at CU Boulder)
 !     Email: Chuanming.liu@colorado.edu
@@ -133,16 +133,14 @@ program SurfAniso
         ! terminal output
         write(*,*)
         write(*,*) '                       DSurfJt'
-        write(*,*) 'PLEASE contact Chuanming Liu &
-            (chuanming.liu@colorado.edu) if you have any problem.'
         write(*,*)
 
         ! read contral file
         if (iargc() < 1) then
-            write(*,*) 'input file [SurfAniso.in (Default)]:'
+            write(*,*) 'input file [para.in (Default)]:'
             read(*,'(a)') inputfile
             if (len_trim(inputfile) <=1 ) then
-                inputfile='SurfAniso.in'
+                inputfile='para.in'
             else
                 inputfile=inputfile(1:len_trim(inputfile))
             endif
@@ -215,8 +213,6 @@ program SurfAniso
         open(66, file=logfile)
         write(66,*)
         write(66,*) '                  DSurfJt'
-        write(66,*)'Please contact Chuanming Liu &
-             (chuanmingliu@foxmail.com) if you find any bug.'
         write(66,*)
         write(66,*) 'model origin:latitude,longitue'
         write(66,'(2f10.4)') goxd,gozd
@@ -435,46 +431,46 @@ program SurfAniso
         std_devs=sqrt(sum((cbst(1:dall)-mean)**2)/dall)
         meanAbs=sum(abs(cbst(1:dall)))/dall
 
-        write(6 ,'(a, f12.4,a,f10.2,a,f10.2,a)') '  Before Inversion: abs mean, std, RMS of Res:', meanAbs,'s',  &
-        std_devs,'s', dnrm2(dall,cbst,1)/sqrt(real(dall)),'s'
-        write(66,'(a, f12.4,a,f10.2,a,f10.2,a)') '  Before Inversion: abs mean, std, RMS of Res:',  meanAbs,'s',  &
-        std_devs,'s', dnrm2(dall,cbst,1)/sqrt(real(dall)),'s'
+        write(6 ,'(a, f12.4,a,f10.2,a,f10.2,a)') '  Before Inversion: abs mean, std, RMS of Res:', meanAbs,' s ',&
+        std_devs,' s ', dnrm2(dall,cbst,1)/sqrt(real(dall)),' s'
+        write(66,'(a, f12.4,a,f10.2,a,f10.2,a)') '  Before Inversion: abs mean, std, RMS of Res:', meanAbs,' s ',&
+        std_devs,' s ', dnrm2(dall,cbst,1)/sqrt(real(dall)),' s'
 
         !----------------------------------------------------------------------!
         ! set data weight
-        datweight=0.0
-        if (iso_inv) then
-            thresholdVs=0.2
-            do i = 1,dall
-            datweight(i) = 1.0
-            if(abs(cbst(i)) > thresholdVs)  datweight(i) = exp(-(abs(cbst(i))-thresholdVs))
-            cbst(i) = cbst(i)*datweight(i)
-            enddo
-        else
-            ! thresholdVs=0.5
-            threshold=std_devs*2.
-            do i = 1,dall
-            datweight(i) = 1.0
-            if(abs(cbst(i)) > threshold)  datweight(i) = exp(-(abs(cbst(i))-threshold))
-            cbst(i) = cbst(i)*datweight(i)
-            enddo
-        ! threshold0: the larger value generate smaller weight, more sensitivity to residual
-        ! threshold0=10
-        ! do i=1,dall
-        !     datweight(i) = 0.01+1.0/(1+0.05*exp(cbst(i)**2*threshold0))
+        ! datweight=0.0
+        ! if (iso_inv) then
+        !     thresholdVs=0.2
+        !     do i = 1,dall
+        !     datweight(i) = 1.0
+        !     if(abs(cbst(i)) > thresholdVs)  datweight(i) = exp(-(abs(cbst(i))-thresholdVs))
         !     cbst(i) = cbst(i)*datweight(i)
-        ! enddo
-        endif
+        !     enddo
+        ! else
+        !     ! thresholdVs=0.5
+        !     threshold=std_devs*2.
+        !     do i = 1,dall
+        !     datweight(i) = 1.0
+        !     if(abs(cbst(i)) > threshold)  datweight(i) = exp(-(abs(cbst(i))-threshold))
+        !     cbst(i) = cbst(i)*datweight(i)
+        !     enddo
+        ! For Yunnan.
+        call CalDdatSigma(dall, obst, cbst, sigmaT, meandeltaT)
+	    do i=1,dall
+            datweight(i)=1/sigmaT(i)
+            cbst(i)=cbst(i)*datweight(i)
+        enddo
+
 
         do i = 1,nar
             rw(i) = rw(i)*datweight(iw(1+i))
         enddo
 
         meanAbs=sum(abs(cbst(1:dall)))/dall
-        write(6 ,'(a, f10.3, a, f10.3,a)') '  mean data weight:',sum(datweight(1:dall))/dall, &
-        '  |  abs data mean with weight:',meanAbs,'s'
-        write(66,'(a, f10.3, a, f10.3,a)') '  mean data weight:',sum(datweight(1:dall))/dall, &
-        '  |  abs data mean with weight:',meanAbs,'s'
+        write(6 ,'(a, f8.3, a, f8.3,a, f7.3, a)') '  mean data weight:',sum(datweight(1:dall))/dall, &
+        ' |  abs data mean with weight:',meanAbs,'s  |  dt/t0:',  meandeltaT*100, ' %'
+        write(66,'(a, f8.3, a, f8.3,a, f7.3, a)') '  mean data weight:',sum(datweight(1:dall))/dall, &
+        ' |  abs data mean with weight:',meanAbs,'s  |  dt/t0:',  meandeltaT*100, ' %'
         if (iso_mod) then
             norm=0
             do i=1,nar
@@ -630,10 +626,10 @@ program SurfAniso
             write(66,'(a,3f10.4)')  '  min  max and abs mean  dVs (km/s)', mindVs, maxdVs, meadVs
             do k=1,nz-1
             VariVs=sum(abs(dv((k-1)*(nx-2)*(ny-2)+1:k*(nx-2)*(ny-2) )))/((nx-2)*(ny-2))
-            write(66,'(a,f6.2,a,f6.2,a,f10.4)') '  Depth= ',depz(k),' - ',depz(k+1),&
-            ' km  Abs Mean Variation (km/s) Vs',VariVs
-            write(6,'(a,f6.2,a,f6.2,a,f10.4)')  '  Depth= ',depz(k),' - ',depz(k+1),&
-            ' km  Abs Mean Variation (km/s) Vs',VariVs
+            write(66,'(a,f5.1,a,f5.1,a,f10.4)') '  Z ',depz(k),' - ',depz(k+1),&
+            ' km  abs mean dVs (km/s)',VariVs
+            write(6,'(a,f5.1,a,f5.1,a,f10.4)')  '  Z ',depz(k),' - ',depz(k+1),&
+            ' km  abs mean dVs (km/s)',VariVs
             enddo
         else
             mindVs=minval(dv(1:maxvp))
@@ -655,9 +651,9 @@ program SurfAniso
             VariVs=sum(abs(dv((k-1)*(nx-2)*(ny-2)+1:k*(nx-2)*(ny-2) )))/((nx-2)*(ny-2))
             VariGc=sum(abs(gcf(1:nx-2,1:ny-2,k)))/((nx-2)*(ny-2))
             VariGs=sum(abs(gsf(1:nx-2,1:ny-2,k)))/((nx-2)*(ny-2))
-            write(66,'(a, f6.2, a, f6.2, a, 2f10.3, f9.4)')'  Depth ',depz(k),' - ',depz(k+1),' km  Abs Mean Variation &
+            write(66,'(a, f5.1, a, f5.1, a, 2f10.3, f9.4)')'  Z ',depz(k),' - ',depz(k+1),' km  Abs Mean &
                Gc (%)  Gs (%)   dVs (km/s)', VariGc*100, VariGs*100, VariVs
-            write(6 ,'(a, f6.2, a, f6.2, a, 2f10.3, f9.4)')'  Depth ',depz(k),' - ',depz(k+1),' km  Abs Mean Variation &
+            write(6 ,'(a, f5.1, a, f5.1, a, 2f10.3, f9.4)')'  Z ',depz(k),' - ',depz(k+1),' km  Abs Mean &
                Gc (%)  Gs (%)   dVs (km/s)', VariGc*100, VariGs*100, VariVs
             enddo
         endif
@@ -723,10 +719,10 @@ program SurfAniso
         meanAbs=sum(abs(resbst(1:dall)))/dall
         std_devs = sqrt(sum((resbst(1:dall)-mean)**2)/dall)
 
-        write(6 ,'(a,f12.4,a,f10.2,a,f10.2,a)') '  After Inversion: abs mean, std, RMS of Res: ', &
-        meanAbs,'s ', std_devs,'s ', dnrm2(dall,resbst,1)/sqrt(real(dall)),'s'
-        write(66,'(a,f12.4,a,f10.2,a,f10.2,a)') '  After Inversion: abs mean, std, RMS of Res: ', &
-        meanAbs,'s ', std_devs,'s ', dnrm2(dall,resbst,1)/sqrt(real(dall)),'s'
+        write(6 ,'(a,f12.4,a,f10.2,a,f10.2,a)')  '  After Inversion: abs mean, std, RMS of Res :', meanAbs,' s ',&
+        std_devs,' s ', dnrm2(dall,resbst,1)/sqrt(real(dall)),' s'
+        write(66,'(a,f12.4,a,f10.2,a,f10.2,a)')  '  After Inversion: abs mean, std, RMS of Res :', meanAbs,' s ',&
+        std_devs,' s ', dnrm2(dall,resbst,1)/sqrt(real(dall)),' s'
 
         ! mean=sum(abs(RefTaa(1:dall)))/dall
         ! mean2=sum(abs(fwdTvs(1:dall)))/dall
@@ -755,15 +751,15 @@ program SurfAniso
         filename = 'MOD_Ref'
         open(11, file=filename)
         do k=1,nz
-            write(11,'(f6.1)',advance='no') depz(k)
+            write(11,'(f7.1)',advance='no') depz(k)
         enddo
         do k = 1,nz
         do j = 1,ny
         do i=1,nx
         if (i.eq.1) then
-        write(11,'(/f7.4)',advance='no')vsf(i,j,k)
+        write(11,'(/f8.4)',advance='no')vsf(i,j,k)
         else
-        write(11,'(f7.4)',advance='no')vsf(i,j,k)
+        write(11,'(f8.4)',advance='no')vsf(i,j,k)
         endif
         enddo
         enddo

@@ -1,45 +1,42 @@
-subroutine CalDdatSigma(dall,obst,cbst,sigmaT,meandeltaT,stddeltaT)
-    implicit none
-    ! abandoned
-    ! INPUT
-    integer dall
-    real obst(dall),cbst(dall)
-    ! OUTPUT
-    real  sigmaT(dall)
-    real meandeltaT,stddeltaT
-    ! PARAMETER
-    integer jj,kk,ii
-    integer i,j,k
-    real twostdratio
-    real :: deltaT(dall)
-    real mean
-    deltaT=0
-    meandeltaT=0
+! subroutine CalDdatSigma(dall,obst,cbst,sigmaT,meandeltaT,stddeltaT)
+subroutine CalDdatSigma(dall, obst, cbst, sigmaT, meandeltaT)
+implicit none
+! abandoned
+! used in Yunnan
+! INPUT
+integer dall
+real obst(dall),cbst(dall)
+! OUTPUT
+real  sigmaT(dall)
+real meandeltaT,stddeltaT
+! PARAMETER
+integer jj,kk,ii
+integer i,j,k
+real twostdratio
+real :: deltaT(dall)
+deltaT=0
+meandeltaT=0
 
-    ! do i = 1,dall
-    !     deltaT(i)=abs(cbst(i)/obst(i))
-    !     meandeltaT=meandeltaT+deltaT(i)
-    ! enddo
-    ! meandeltaT=meandeltaT/dall
-    ! stddeltaT=0
-    ! do i=1,dall
-    !     stddeltaT=stddeltaT+(deltaT(i)-meandeltaT)**2
-    ! enddo
-    ! stddeltaT=sqrt(stddeltaT/dall)
-
-    deltaT = abs(cbst(1:dall)/obst(1:dall))
-    meandeltaT = sum(deltaT)/dall
-    stddeltaT = sqrt(sum((deltaT(1:dall)-meandeltaT)**2)/dall)
-    do i=1,dall
-        twostdratio=abs(deltaT(i)/(2.*stddeltaT))
-        if (twostdratio .gt. 1.0)then
-            sigmaT(i)=stddeltaT*obst(i)*exp(twostdratio-1)
-        else
-            sigmaT(i)=stddeltaT*obst(i)
-        endif
-    enddo
-    mean=sum(sigmaT(1:dall))/dall
-    write(6 ,'(a, f10.3, a, f10.3,a)') '  mean data sigma:', mean, '  mean data weight', 1./mean
+do i = 1,dall
+    deltaT(i)=abs(cbst(i)/obst(i))
+    meandeltaT=meandeltaT+deltaT(i)
+enddo
+meandeltaT=meandeltaT/dall
+! meandeltaT=sum(deltaT(1:dall))/dall
+stddeltaT=0
+do i=1,dall
+    stddeltaT=stddeltaT+(deltaT(i)-meandeltaT)**2
+enddo
+stddeltaT=sqrt(stddeltaT/dall)
+! stddeltaT=sqrt(sum((deltaT(1:dall)-meandeltaT)**2))
+do i=1,dall
+    twostdratio=abs(deltaT(i)/(1.5*stddeltaT))
+    if (twostdratio.gt.1.0)then
+        sigmaT(i)=stddeltaT*obst(i)*exp(twostdratio-1)
+    else
+        sigmaT(i)=stddeltaT*obst(i)
+    endif
+enddo
 end subroutine
 
 ! Residual Norm !
@@ -87,8 +84,8 @@ subroutine CalVsReslNorm(maxvp,dall,GVs,VsInv,datweight,Tdata,fwdTvs,resbst)
     res2Nm=dnrm2(dall,resbst,1)
     PreRes=sum(abs(per_res(1:dall)))/dall
 
-    write(6 ,'(a,2f10.1)') '  Vs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
-    write(66,'(a,2f10.1)') '  Vs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
+    write(6 ,'(a,2f10.1)') '  dVs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
+    write(66,'(a,2f10.1)') '  dVs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
     write(6,*) ' abs mean Res(Vs)/Res  (%)',PreRes*100
     write(66,*)' abs mean Res(Vs)/Res  (%)',PreRes*100
 end subroutine
@@ -146,7 +143,6 @@ subroutine CalGcsReslNorm(maxvp,dall,GGc,GGs, GcInv, GsInv, datweight,Tdata,fwdT
     resW2Nm=dnrm2(dall,resW,1)
     res2Nm=dnrm2(dall,resbst,1)
     PreRes=sum(abs(per_res(1:dall)))/dall
-
     write(6 ,'(a,2f10.1)') '  Gcs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
     write(66,'(a,2f10.1)') '  Gcs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
     write(6,*) ' abs mean Res(aa)/Res  (%)',PreRes*100
@@ -281,8 +277,8 @@ subroutine Calmodel2Norm(nar1,nar,maxvp,count3,rw,col,dv,weight)
     ! enddo
     ! close(90)
 
-    write(6 ,'(a,2f10.1)') '  ||Lm||^2      and ||wLm||^2    : ', Mnorm2, MwNorm2
-    write(66,'(a,2f10.1)') '  ||Lm||^2      and ||wLm||^2    : ', Mnorm2, MwNorm2
+    write(6 ,'(a,2f10.1)') '  dVs:  ||Lm||^2     and ||wLm||^2    : ', Mnorm2, MwNorm2
+    write(66,'(a,2f10.1)') '  dVs:  ||Lm||^2     and ||wLm||^2    : ', Mnorm2, MwNorm2
 end subroutine
 
 subroutine Calmodel2NormJoint(nar1,nar,maxvp, NreVs, Nre, rw,col,dv, lameGcs, lameVs)
