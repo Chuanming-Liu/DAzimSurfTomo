@@ -5,7 +5,7 @@ surfphase_forward_RV3th.dat	     	 c: data file
 17 17 4                              c: nx ny nz (grid number in lat lon and depth direction)
 26.5  101.25                         c: goxd gozd (upper left point,[lat,lon])
 0.25 0.25                            c: dvxd dvzd (grid interval in lat:0 and lon direction)
-2                                    c: number of refined layer in a layer minthk (about 1/3 of grid interval in vertical direction)
+2                                    c: number of refined layer in a layer minthk 
 2.912 4.142                          c: minimum velocity, maximum velocity
 5000                                 c: nsrc*maxf
 0.2                                  c: sparsity fraction
