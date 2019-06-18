@@ -42,6 +42,9 @@ c       01 AUG 2010 - change code to agree with book  for
 c                     migration to TI.
 c                     explicit none
 c       20 MAR 2012 - corrected compiler warnings
+c       05 JUN 2019 - modified by Lili Feng and Chuanming Liu
+c                     to calculate Rayleigh wave phase velocity
+c                     sensitivity kernels.
 c- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         subroutine tregn96(nl_in, d_in, TA_in, TC_in, TF_in, TL_in,
      1      TN_in, TRho_in, qai_in, qbi_in, etapi_in, etasi_in,

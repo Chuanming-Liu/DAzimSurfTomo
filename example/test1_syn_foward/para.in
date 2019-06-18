@@ -1,12 +1,12 @@
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c SurfAnisoForward Input
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-Surfphase_RV3_5_40s_1s.dat	 	    c: input path file
+Surfphase_RV3_5_40s_1s.dat	 	    c: blank traveltime data file
 17 17 4                             c: nx ny nz (grid number in lat lon and depth direction)
 26.5  101.25                        c: goxd gozd (upper left point,[lat,lon])
 0.25 0.25                           c: dvxd dvzd (grid interval in lat and lon direction)
-5000                                c: nsrc*maxf (maxmum of the record number for one station)
-2                                   c: minthk (about 1/3 of grid interval in vertical direction)
+5000                                c: max(sources, receivers)
+2                                   c: sablayers (2~5)
 0.2                                 c: sparsity fraction
 F         				   			c: T: output raypath; F: not output raypath
 36                                  c: kmaxRc (followed by periods)

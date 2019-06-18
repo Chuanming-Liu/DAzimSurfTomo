@@ -42,7 +42,7 @@ c       01 AUG 2010 - change code to agree with book  for
 c                     migration to TI.
 c                     explicit none
 c       20 MAR 2012 - corrected compiler warnings
-c       05 JUN 2019 - modified by Feng Lili and Chuanming Liu
+c       05 JUN 2019 - modified by Lili Feng and Chuanming Liu
 c                     to calculate Rayleigh wave phase velocity
 c                     sensitivity kernels.
 c- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -1,0 +1,37 @@
+Revision History
+
+2016-12:
+V1.0 version, using Mineos to do calculation of depth sensitivity kernel.
+
+2017-04:
+Iteration version.
+Failed to use regionalization for non-positive definite G matrix.
+
+2017-04-23:
+Staggered iteration version.
+
+2017-05:
+Add Tikhonov regularization.
+
+2017-07-05:
+Debug: error in rpathsAzim.f90
+(should start from the simplest Synthetic test)
+
+
+2019-05-30:
+V2.0
+Use Tregn.f90 from cps to calculate depth sensitivity kernel. (Simplify the whole work flow greatly)
+
+Potential problem: cannot use -fopenmp for depthkernelTI.f90 (but the time cost is affordable)
+
+
+2019-06-03:
+Improve iso-inversion part. Unknown small difference in 6-th iso-inversion, which may be related to gfortran version (works on gcc version 4.8.5 summit/marine, not on gcc version 6.3.0)
+
+
+2019-06-04:
+Modify the inversion into joint inversion for isotropic part and anisotropic part simultaneously.
+
+
+
+

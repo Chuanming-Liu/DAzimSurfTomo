@@ -1,6 +1,8 @@
 ## DSurfJt
 
-The package of direct inversion for 3-D azimuthal anisotropy.
+The package of direct joint inversion for 3-D isotropic Vsv perturbation and azimuthal anisotropy without conventional tomography.
+
+Please can the manual for usage.
 
 
 
