@@ -45,6 +45,9 @@ c       20 MAR 2012 - corrected compiler warnings
 c       05 JUN 2019 - modified by Lili Feng and Chuanming Liu
 c                     to calculate Rayleigh wave phase velocity
 c                     sensitivity kernels.
+c       10 JUN 2019 - add subroutine: sphere_tdisp96
+c                     assimilate other subroutines
+c                     Chuanming Liu.
 c- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         subroutine tregn96(nl_in, d_in, TA_in, TC_in, TF_in, TL_in,
      1      TN_in, TRho_in, qai_in, qbi_in, etapi_in, etasi_in,
