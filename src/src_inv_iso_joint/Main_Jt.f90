@@ -132,7 +132,7 @@ program SurfAniso
         open(nout,file='lsmr.txt')
         ! terminal output
         write(*,*)
-        write(*,*) '                       DSurfJt'
+        write(*,*) '                       DAzimSurfTomo'
         write(*,*)
 
         ! read contral file
@@ -212,7 +212,7 @@ program SurfAniso
         !open(66,file=logfile,action='write')
         open(66, file=logfile)
         write(66,*)
-        write(66,*) '                  DSurfJt'
+        write(66,*) '                  DAzimSurfTomo'
         write(66,*)
         write(66,*) 'model origin:latitude,longitue'
         write(66,'(2f10.4)') goxd,gozd
