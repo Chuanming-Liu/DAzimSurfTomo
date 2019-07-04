@@ -22,11 +22,11 @@ surfphase_forward_RV3th.dat	     	 c: traveltime data file
 17 17 4                              c: nx ny nz (grid number in lat, lon and depth direction)
 26.5  101.25                         c: goxd gozd (upper left point,[lat,lon])
 0.25 0.25                            c: dvxd dvzd (grid interval in lat and lon direction)
-2                                    c: sablayers (2~5)
+2                                    c: sublayers (2~5)
 2.912 4.142                          c: minimum and maximum Vsv
 1000                                 c: max(sources, receivers)
 0.2                                  c: sparsity fraction
-5				    				 c: maxmum of interation for joint inversion 
+5				    				 c: maximum of interation for joint inversion 
 F                                    c: iso-mode (T: isotropic inversion; F: joint inversion)
 cccccccc control parameters
 950	           		                 c: weight for Vs
@@ -71,7 +71,7 @@ The format of dispersion data ,same as DSurfTomo, is as followed:
 25.133539 121.499190 1.3910
 ```
 
-Lines begin with '#' represent the sources, followed by source latitude, source longitude, period index (integer), wave type and velocity type.
+Lines beginning with '#' represent the sources, followed by source latitude, source longitude, period index (integer), wave type and velocity type.
 
 Each source is then followed by the receiver data: the first two columns are the latitude and longitude of the receivers, the third column is phase or group velocity (surface wave dispersion measurements). Period index (integer): index of the period vector that is listed in the parameter file para.in.
 
@@ -79,7 +79,7 @@ Wave type (integer): 2 for Rayleigh wave and 1 for Love wave
 
 Velocity type (integer): 0 for phase velocity and 1 for group velocity.
 
-For DSurfJt fouces on the inversion of azimuthal anisotropy, the input data is limit to the Rayleigh wave phase velocity.
+For DAzimSurfTomo focus on the inversion of azimuthal anisotropy, the input data is limit to the Rayleigh wave phase velocity.
 
 ### 5. Initial Model (MOD)
 
@@ -115,7 +115,7 @@ col 3: depth (km)
 col 4: Vsv (km/s)
 ```
 
-2.`MOD_Ref`: same as `MOD`, which can be used as initial model for joint inversion.
+2.`MOD_Ref`: same as `MOD`, which can be used as the initial model for joint inversion.
 
 #### joint inversion mode (or anisotropic inversion mode) 
 
