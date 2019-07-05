@@ -20,7 +20,7 @@ Debug: error in rpathsAzim.f90
 
 2019-05-30:
 V2.0
-Use Tregn.f90 from cps to calculate depth sensitivity kernel. (Simplify the whole work flow greatly)
+Use tregn96.f modified from cps to calculate depth sensitivity kernel. (Simplify the whole work flow greatly)
 
 Potential problem: cannot use -fopenmp for depthkernelTI.f90 (but the time cost is affordable)
 
@@ -30,7 +30,7 @@ Improve iso-inversion part. Unknown small difference in 6-th iso-inversion, whic
 
 
 2019-06-04:
-Modify the inversion into joint inversion for isotropic part and anisotropic part simultaneously.
+Modify the inversion into joint inversion for both isotropic part and anisotropic part simultaneously.
 
 
 

@@ -6,7 +6,7 @@ F90SRCS = lsmrDataModule.f90 lsmrblasInterface.f90\
           lsmrblas.f90 lsmrModule.f90 delsph.f90\
 	  aprod.f90 gaussian.f90 Main_Jt.f90\
 	  CalSigamNorm.f90 CalAzimTraveltime.f90 TikhRegul.f90
-FSRCS =  surfdisp96.f tregn96_subroutine.f
+FSRCS =  surfdisp96.f tregn96.f
 FMP =   rpathsAzim.f90 FwdAzimuthalAniMap.f90
 OBJS = CalSurfG.o $(F90SRCS:%.f90=%.o) $(FSRCS:%.f=%.o) $(FMP:%.f90=%.o) CalSurfGAniso_Joint.o depthkernelTI.o
 all:$(CMD)

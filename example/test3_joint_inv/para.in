@@ -9,7 +9,7 @@ surfphase_forward_RV3th.dat	     	 c: traveltime data file
 2.912 4.142                          c: minimum and maximum Vsv
 5000                                 c: max(sources, receivers)
 0.2                                  c: sparsity fraction
-10				    				 c: maxmum of interation
+10				    				 c: maximum of interation
 F                                    c: iso-mode (T: isotropic inversion; F: joint inversion)
 cccccccc control parameters
 300	           		                 c: weight for Vsv

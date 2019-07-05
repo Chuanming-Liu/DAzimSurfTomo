@@ -86,8 +86,8 @@ subroutine CalVsReslNorm(maxvp,dall,GVs,VsInv,datweight,Tdata,fwdTvs,resbst)
 
     write(6 ,'(a,2f10.1)') '  dVs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
     write(66,'(a,2f10.1)') '  dVs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
-    write(6,*) ' abs mean Res(Vs)/Res  (%)',PreRes*100
-    write(66,*)' abs mean Res(Vs)/Res  (%)',PreRes*100
+    ! write(6,*) ' abs mean Res(Vs)/Res  (%)',PreRes*100
+    ! write(66,*)' abs mean Res(Vs)/Res  (%)',PreRes*100
 end subroutine
 
 
@@ -145,8 +145,8 @@ subroutine CalGcsReslNorm(maxvp,dall,GGc,GGs, GcInv, GsInv, datweight,Tdata,fwdT
     PreRes=sum(abs(per_res(1:dall)))/dall
     write(6 ,'(a,2f10.1)') '  Gcs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
     write(66,'(a,2f10.1)') '  Gcs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
-    write(6,*) ' abs mean Res(aa)/Res  (%)',PreRes*100
-    write(66,*)' abs mean Res(aa)/Res  (%)',PreRes*100
+    ! write(6,*) ' abs mean Res(aa)/Res  (%)',PreRes*100
+    ! write(66,*)' abs mean Res(aa)/Res  (%)',PreRes*100
 end subroutine
 
 
@@ -277,8 +277,8 @@ subroutine Calmodel2Norm(nar1,nar,maxvp,count3,rw,col,dv,weight)
     ! enddo
     ! close(90)
 
-    write(6 ,'(a,2f10.1)') '  dVs:  ||Lm||^2     and ||wLm||^2    : ', Mnorm2, MwNorm2
-    write(66,'(a,2f10.1)') '  dVs:  ||Lm||^2     and ||wLm||^2    : ', Mnorm2, MwNorm2
+    write(6 ,'(a,2f10.1)') '  dVs:  ||Lm||^2      and ||wLm||^2    : ', Mnorm2, MwNorm2
+    write(66,'(a,2f10.1)') '  dVs:  ||Lm||^2      and ||wLm||^2    : ', Mnorm2, MwNorm2
 end subroutine
 
 subroutine Calmodel2NormJoint(nar1,nar,maxvp, NreVs, Nre, rw,col,dv, lameGcs, lameVs)
