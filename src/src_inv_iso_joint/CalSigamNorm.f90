@@ -14,6 +14,7 @@ integer jj,kk,ii
 integer i,j,k
 real twostdratio
 real :: deltaT(dall)
+! sigma(i)=std(t_res/t_obs)*t_obs
 deltaT=0
 meandeltaT=0
 

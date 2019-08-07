@@ -147,7 +147,7 @@ col 9: a2_sin
 
 ### References
 
-Liu, C., Yao, H., Yang, H. ....
+Liu, C., Yao, H., Yang, H., Shen, W., Fang, H., Hu, S., Qiao, L., 2019. Direct inversion for three-dimensional shear wavespeed azimuthal anisotropy based on surface-wave ray tracing: methodology and application to Yunnan, southwest China. Journal of Geophysics Research: Solid Earth. Under revision.
 
 
 Fang, H., Yao, H., Zhang, H., Huang, Y. C., & van der Hilst, R. D., 2015. Direct inversion of surface wave dispersion for three-dimensional shallow crustal structure based on ray tracing: methodology and application. Geophysical Journal International, 201(3), 1251-1263.
