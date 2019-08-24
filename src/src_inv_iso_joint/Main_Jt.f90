@@ -5,6 +5,10 @@
 !    Author: Chuanming Liu (at CU Boulder)
 !     Email: Chuanming.liu@colorado.edu
 ! Reference:
+! Liu, C., Yao, H., Yang, H., Shen, W., Fang, H., Hu, S., Qiao, L., 2019. Direct
+! inversion for three-dimensional shear wavespeed azimuthal anisotropy based on
+! surface-wave ray tracing: methodology and application to Yunnan, southwest China.
+! Journal of Geophysics Research: Solid Earth. doi: 10.1029/2018JB016920
 
 program SurfAniso
         use lsmrModule, only:lsmr

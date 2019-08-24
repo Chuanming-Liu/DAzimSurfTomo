@@ -4,7 +4,7 @@ Chuanming Liu (chuanmingliu@foxmail.com) and Huajian Yao (hjyao@ustc.edu.cn)
 
 ### 1. Description
 
-[DAzimSurfTomo](https://github.com/Chuanming-Liu/DAzimSurfTomo) is a Rayleigh wave inversion program which can directly invert Rayleigh wave dispersion data to 3-D depth-dependent Vsv velocity and azimuthal anisotropy, which does not need the conventional intermediate step of tomography. This method was developed at the University of Science and Technology of China.  The inversion frame and isotropic inversion part are based on the [DSurfTomo](https://github.com/HongjianFang/DSurfTomo) (Fang et al. 2015) with the same initial model and input data format. The fast marching method (Rawlinson et al. 2004) is used to compute Rayleigh wave traveltime and ray paths at each period. DSurfJt includes two inversion mode for isotropic inversion and joint inversion of Vsv and azimuthal anisotropy.  Please refer to our following paper for the details.
+[DAzimSurfTomo](https://github.com/Chuanming-Liu/DAzimSurfTomo) is a Rayleigh wave inversion program which can directly invert Rayleigh wave dispersion data to 3-D depth-dependent Vsv velocity and azimuthal anisotropy, which does not need the conventional intermediate step of tomography. This method was developed at the University of Science and Technology of China.  The inversion frame and isotropic inversion part are based on the [DSurfTomo](https://github.com/HongjianFang/DSurfTomo) (Fang et al. 2015) with the same initial model and input data format. The fast marching method (Rawlinson et al. 2004) is used to compute Rayleigh wave traveltime and ray paths at each period. DSurfJt includes two inversion mode for isotropic inversion and joint inversion of Vsv and azimuthal anisotropy.  Please refer to our [paper](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018JB016920) for the details.
 
 
 ### 2. Installation
@@ -147,7 +147,7 @@ col 9: a2_sin
 
 ### References
 
-Liu, C., Yao, H., Yang, H., Shen, W., Fang, H., Hu, S., Qiao, L., 2019. Direct inversion for three-dimensional shear wavespeed azimuthal anisotropy based on surface-wave ray tracing: methodology and application to Yunnan, southwest China. Journal of Geophysics Research: Solid Earth. Under revision.
+Liu, C., Yao, H., Yang, H., Shen, W., Fang, H., Hu, S., Qiao, L., 2019. Direct inversion for three-dimensional shear wavespeed azimuthal anisotropy based on surface-wave ray tracing: methodology and application to Yunnan, southwest China. Journal of Geophysics Research: Solid Earth. doi: 10.1029/2018JB016920
 
 
 Fang, H., Yao, H., Zhang, H., Huang, Y. C., & van der Hilst, R. D., 2015. Direct inversion of surface wave dispersion for three-dimensional shallow crustal structure based on ray tracing: methodology and application. Geophysical Journal International, 201(3), 1251-1263.
