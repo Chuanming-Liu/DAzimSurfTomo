@@ -97,7 +97,7 @@ The file name of the initial model must be 'MOD', the content looks like:
 
 The first line is the depths (km) of grid points in the vertical direction.
 
-Then followed by shear velocity values. The order is altitude first, then longitude, followed by depth. Each row represents shear velocity values at different latitude at a single longitude and a certain depth, then followed by next longitude, then depth.
+Then followed by shear velocity values (in km/s). The order is altitude first, then longitude, followed by depth. Each row represents shear velocity values at different latitude at a single longitude and a certain depth, then followed by next longitude, then depth.
 
 In case of a 3D initial velocity model, note we have boundary values included in this file. The original point will be in the upper northwest corner.
 
@@ -144,6 +144,11 @@ col 7: amplitude (sqrt(a1**2+a2**2))
 col 8: a1_cos
 col 9: a2_sin
 ```
+
+### 7. Workflow
+
+1. Perform isotropic inversion to generate reference model and find the appropriate weight for Vsv. (test2)
+2. Perform joint inversion. (test3) 
 
 ### References
 

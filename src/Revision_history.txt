@@ -33,5 +33,7 @@ Improve iso-inversion part. Unknown small difference in 6-th iso-inversion, whic
 Modify the inversion into joint inversion for both isotropic part and anisotropic part simultaneously.
 
 
-
+2019-11-01:
+Overflow of maxnar related integer array
+Ref: https://stackoverflow.com/questions/19781713/what-is-the-biggest-array-size-for-double-precision-in-fortran-90
 
