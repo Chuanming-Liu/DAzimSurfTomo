@@ -1,0 +1,76 @@
+
+
+ Enter LSMR.       Least-squares solution of  Ax = b
+ The matrix  A  has 262035 rows   and    675 columns
+ damp   =  0.00000000000000E+00
+ atol   =  1.00E-03               conlim =  1.20E+03
+ btol   =  1.00E-03               itnlim =      1000
+ localSize (no. of vectors for local reorthogonalization) =    168
+
+   Itn       x(1)            norm r         A'r    Compatible    LS      norm A    cond A
+     0  0.000000000E+00  5.131386719E+02  7.11E+04  1.00E+00  2.70E-01
+     1  1.679947331E-06  4.956646423E+02  3.06E+04  9.66E-01  1.17E-01  5.26E+02  1.00E+00
+     2  1.982083631E-06  4.944422607E+02  1.36E+04  9.64E-01  1.86E-02  1.47E+03  2.10E+00
+     3  1.971760639E-06  4.942851257E+02  9.19E+03  9.63E-01  9.20E-03  2.02E+03  2.34E+00
+     4  1.935655746E-06  4.942182617E+02  7.29E+03  9.63E-01  5.42E-03  2.72E+03  2.59E+00
+     5  1.867592687E-06  4.941532898E+02  5.29E+03  9.63E-01  3.00E-03  3.56E+03  3.14E+00
+     6  1.812604637E-06  4.941231079E+02  3.91E+03  9.63E-01  1.91E-03  4.15E+03  3.14E+00
+     7  1.757498239E-06  4.941043701E+02  2.66E+03  9.63E-01  1.14E-03  4.72E+03  3.17E+00
+     8  1.727503218E-06  4.940974426E+02  2.01E+03  9.63E-01  7.97E-04  5.10E+03  3.17E+00
+
+ Exit  LSMR.       istop  = 2               itn    =       8
+ Exit  LSMR.       normA  = 5.10284E+03     condA  = 3.16573E+00
+ Exit  LSMR.       normb  = 5.13139E+02     normx  = 2.71491E-01
+ Exit  LSMR.       normr  = 4.94097E+02     normAr = 2.00838E+03
+ Exit  LSMR.       The least-squares solution is good enough, given atol
+
+
+ Enter LSMR.       Least-squares solution of  Ax = b
+ The matrix  A  has 262035 rows   and    675 columns
+ damp   =  0.00000000000000E+00
+ atol   =  1.00E-03               conlim =  1.20E+03
+ btol   =  1.00E-03               itnlim =      1000
+ localSize (no. of vectors for local reorthogonalization) =    168
+
+   Itn       x(1)            norm r         A'r    Compatible    LS      norm A    cond A
+     0  0.000000000E+00  5.064974670E+02  7.35E+04  1.00E+00  2.87E-01
+     1  1.914553422E-06  4.870997009E+02  3.16E+04  9.62E-01  1.25E-01  5.20E+02  1.00E+00
+     2  2.266291631E-06  4.857290344E+02  1.41E+04  9.59E-01  2.01E-02  1.44E+03  2.07E+00
+     3  2.262214366E-06  4.855455933E+02  9.49E+03  9.59E-01  9.91E-03  1.97E+03  2.31E+00
+     4  2.227865480E-06  4.854703064E+02  7.47E+03  9.58E-01  5.76E-03  2.67E+03  2.54E+00
+     5  2.163690169E-06  4.854013367E+02  5.54E+03  9.58E-01  3.28E-03  3.48E+03  3.14E+00
+     6  2.107220553E-06  4.853658447E+02  4.19E+03  9.58E-01  2.12E-03  4.07E+03  3.14E+00
+     7  2.045152542E-06  4.853415222E+02  2.88E+03  9.58E-01  1.29E-03  4.62E+03  3.14E+00
+     8  2.009308673E-06  4.853323059E+02  2.15E+03  9.58E-01  8.86E-04  5.00E+03  3.14E+00
+
+ Exit  LSMR.       istop  = 2               itn    =       8
+ Exit  LSMR.       normA  = 4.99982E+03     condA  = 3.13560E+00
+ Exit  LSMR.       normb  = 5.06497E+02     normx  = 2.87445E-01
+ Exit  LSMR.       normr  = 4.85332E+02     normAr = 2.15006E+03
+ Exit  LSMR.       The least-squares solution is good enough, given atol
+
+
+ Enter LSMR.       Least-squares solution of  Ax = b
+ The matrix  A  has 262035 rows   and    675 columns
+ damp   =  0.00000000000000E+00
+ atol   =  1.00E-03               conlim =  1.20E+03
+ btol   =  1.00E-03               itnlim =      1000
+ localSize (no. of vectors for local reorthogonalization) =    168
+
+   Itn       x(1)            norm r         A'r    Compatible    LS      norm A    cond A
+     0  0.000000000E+00  4.991835938E+02  7.64E+04  1.00E+00  3.06E-01
+     1  2.201531970E-06  4.773574219E+02  3.23E+04  9.56E-01  1.31E-01  5.15E+02  1.00E+00
+     2  2.593635145E-06  4.758659668E+02  1.48E+04  9.53E-01  2.23E-02  1.39E+03  2.03E+00
+     3  2.600132575E-06  4.756421509E+02  1.00E+04  9.53E-01  1.10E-02  1.91E+03  2.29E+00
+     4  2.570586503E-06  4.755508728E+02  7.82E+03  9.53E-01  6.26E-03  2.63E+03  2.49E+00
+     5  2.512751735E-06  4.754729004E+02  5.94E+03  9.53E-01  3.70E-03  3.38E+03  3.15E+00
+     6  2.456211860E-06  4.754280396E+02  4.58E+03  9.52E-01  2.43E-03  3.96E+03  3.15E+00
+     7  2.387194399E-06  4.753939819E+02  3.18E+03  9.52E-01  1.49E-03  4.49E+03  3.15E+00
+     8  2.344811719E-06  4.753807068E+02  2.32E+03  9.52E-01  1.00E-03  4.87E+03  3.15E+00
+     9  2.313287268E-06  4.753739624E+02  1.62E+03  9.52E-01  6.40E-04  5.33E+03  3.15E+00
+
+ Exit  LSMR.       istop  = 2               itn    =       9
+ Exit  LSMR.       normA  = 5.33405E+03     condA  = 3.14798E+00
+ Exit  LSMR.       normb  = 4.99184E+02     normx  = 3.06731E-01
+ Exit  LSMR.       normr  = 4.75374E+02     normAr = 1.62218E+03
+ Exit  LSMR.       The least-squares solution is good enough, given atol

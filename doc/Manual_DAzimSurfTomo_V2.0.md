@@ -18,7 +18,7 @@ Please check the Makefile in ./src for installation.
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c INPUT PARAMETERS
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-surfphase_forward_RV3th.dat	     	 c: traveltime data file 
+surfphase_forward_RV3th.dat	     	   c: traveltime data file 
 17 17 4                              c: nx ny nz (grid number in lat, lon and depth direction)
 26.5  101.25                         c: goxd gozd (upper left point,[lat,lon])
 0.25 0.25                            c: dvxd dvzd (grid interval in lat and lon direction)
@@ -26,12 +26,12 @@ surfphase_forward_RV3th.dat	     	 c: traveltime data file
 2.912 4.142                          c: minimum and maximum Vsv
 1000                                 c: max(sources, receivers)
 0.2                                  c: sparsity fraction
-5				    				 c: maximum of interation for joint inversion 
+5				    				 								 c: maximum of interation for joint inversion 
 F                                    c: iso-mode (T: isotropic inversion; F: joint inversion)
 cccccccc control parameters
-950	           		                 c: weight for Vs
-8.5		           	                 c: weight for Gc, Gs
-0		           	                 c: damp
+950	           		                   c: weight for Vs
+8.5		           	                   c: weight for Gc, Gs
+0		           	                     c: damp
 cccccccc periods
 36                                   c: kmaxRc number of periods (followed by periods)
 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40
@@ -45,7 +45,7 @@ Note:
  The inverted region: `Lat: goxd-(nx-3)*dvxd ~ goxd; Lon: gozd ~ gozd+(ny-3)*dvzd`
 
 3. `sublayers` represents how many sublayers used to transform knot grids to layers in order to calculate the depth kernel. 
- 
+
 4. `sparsity fraction` parameter means how sparsity the sensitivity matrix is, 2-10 percent will be enough for most cases.
 
 5. `weight` is the balancing parameter between data fitting term and smoothing regularization term. 
@@ -120,7 +120,7 @@ col 4: Vsv (km/s)
 #### joint inversion mode (or anisotropic inversion mode) 
 
 1.`Gc_Gs_model.inv` (layered model)
- 
+
 ```
 col 1: longitude (degree)
 col 2: latitude (degree)
@@ -132,7 +132,7 @@ col 7: Gc/L (%)
 col 8: Gs/L (%)
 ```
 2.`period_Azm_tomo.inv` (layered model)
- 
+
 ```
 col 1: longitude (degree)
 col 2: latitude (degree)
@@ -152,12 +152,13 @@ col 9: a2_sin
 
 ### References
 
-Liu, C., Yao, H., Yang, H., Shen, W., Fang, H., Hu, S., Qiao, L., 2019. Direct inversion for three-dimensional shear wavespeed azimuthal anisotropy based on surface-wave ray tracing: methodology and application to Yunnan, southwest China. Journal of Geophysics Research: Solid Earth. doi: 10.1029/2018JB016920
+Liu, C., Yao, H., Yang, H., Shen, W., Fang, H., Hu, S., Qiao, L., 2019. Direct inversion for three-dimensional shear wavespeed azimuthal anisotropy based on surface-wave ray tracing: methodology and application to Yunnan, southwest China. Journal of Geophysics Research: Solid Earth. *124*(11), 11394-11413.
 
 
 Fang, H., Yao, H., Zhang, H., Huang, Y. C., & van der Hilst, R. D., 2015. Direct inversion of surface wave dispersion for three-dimensional shallow crustal structure based on ray tracing: methodology and application. Geophysical Journal International, 201(3), 1251-1263.
 
-Rawlinson, N. & Sambridge, M., 2004. Wave front evolution in strongly heterogeneous layered media using the fast marching method, Geophys. J. Int., 156(3), 631–647
+Rawlinson, N. & Sambridge, M., 2004. Wave front evolution in strongly heterogeneous layered media using the fast marching method, Geophys. J. Int., 156(3), 631–647.
+
+Herrmann, R. B., 2013. Computer programs in seismology: An evolving tool for instruction and research. Seism Research Letters, 84(6),1081–1088.
 
 
-  

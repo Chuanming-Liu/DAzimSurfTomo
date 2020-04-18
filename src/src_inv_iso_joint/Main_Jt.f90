@@ -53,7 +53,7 @@ program SurfAniso
        	integer,dimension(:),allocatable::nsrc1
        	integer,dimension(:,:),allocatable::periods
        	real,dimension(:),allocatable::rw
-       	integer,dimension(:),allocatable::iw,col
+       	integer, dimension(:),allocatable::iw,col
         real,dimension(:),allocatable::dv
         real,dimension(:,:,:),allocatable::vsf
       	character strf
@@ -66,6 +66,7 @@ program SurfAniso
       	integer HorizonType,VerticalType
       	character line*200
         integer iter,maxiter
+        ! integer*4/8
         integer maxnar
         real acond,anorm,arnorm,rnorm,xnorm
         character str1
