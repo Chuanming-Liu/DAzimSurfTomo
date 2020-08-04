@@ -29,8 +29,8 @@ surfphase_forward_RV3th.dat	     	   c: traveltime data file
 5				    				 								 c: maximum of interation for joint inversion 
 F                                    c: iso-mode (T: isotropic inversion; F: joint inversion)
 cccccccc control parameters
-950	           		                   c: weight for Vs
-8.5		           	                   c: weight for Gc, Gs
+950	           		                   c: smoothing for Vs
+8.5		           	                   c: smoothing for Gc, Gs
 0		           	                     c: damp
 cccccccc periods
 36                                   c: kmaxRc number of periods (followed by periods)
@@ -48,7 +48,7 @@ Note:
 
 4. `sparsity fraction` parameter means how sparsity the sensitivity matrix is, 2-10 percent will be enough for most cases.
 
-5. `weight` is the balancing parameter between data fitting term and smoothing regularization term. 
+5. smoothing is the balancing parameter between data fitting term and smoothing regularization term. 
 
 6. `damp`is the input parameter for LSQR, it controls the amplitude of the inverted parameter.
 
@@ -147,7 +147,7 @@ col 9: a2_sin
 
 ### 7. Workflow
 
-1. Perform isotropic inversion to generate reference model and find the appropriate weight for Vsv. (test2)
+1. Perform isotropic inversion to generate reference model and find the appropriate smoothing for Vsv. (test2)
 2. Perform joint inversion. (test3) 
 
 ### References

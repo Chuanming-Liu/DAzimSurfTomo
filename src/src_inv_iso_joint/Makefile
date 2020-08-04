@@ -1,4 +1,4 @@
-CMD = DSurfJt
+CMD = DAzimSurfTomo
 FC = gfortran
 FFLAGS  = -O3 -ffixed-line-length-none -ffloat-store\
            -W  -fbounds-check -m64 -mcmodel=medium

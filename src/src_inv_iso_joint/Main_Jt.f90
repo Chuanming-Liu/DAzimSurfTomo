@@ -1,8 +1,8 @@
 ! Direct Inversion for 3-D Azimuthal Anisotropy
-! V1.1 (2017) Based on Mineos to calculate kernel
-! V2.0 (2019) Based on CPS-tregn96 to calcualte kernel
+! V1.1 (2017) based on Mineos to calculate kernel
+! V2.0 (2019) based on CPS-tregn96 to calcualte kernel
 ! Copyright:
-!    Author: Chuanming Liu (at CU Boulder)
+!    Author: Chuanming Liu (USTC)
 !     Email: Chuanming.liu@colorado.edu
 ! Reference:
 ! Liu, C., Yao, H., Yang, H., Shen, W., Fang, H., Hu, S., Qiao, L., 2019. Direct
@@ -358,9 +358,6 @@ program SurfAniso
         !----------------------------------------------------------------------!
         !                     iteration part
         !----------------------------------------------------------------------!
-        !  if iter is odd: invert for  anisotropic model Gc/L,Gs/L (iter = 1, 3, 5)
-        !  if iter is even: invert for isotropic model Vs (iter = 2, 4)
-        !----------------------------------------------------------------------!
         RefTaa=0
         ! iso_mod=.false.
         open(34, file='IterVel.out')
@@ -385,7 +382,7 @@ program SurfAniso
         write(66,*) ' -----------------------------------------------------------'
         !----------------------------------------------------------------------!
         ! compute G matrix based on the sensitivity kernel and ray-tracing
-        ! forward calculation of traveltime misfit based on the reference iso or aniso model.
+        ! forward calculation of traveltime misfit based on the reference iso- or aniso- model.
         Refwritepath = 0 ! switch of write ray path
         dsyn = 0
         GGc = 0
@@ -442,7 +439,7 @@ program SurfAniso
         std_devs,' s ', dnrm2(dall,cbst,1)/sqrt(real(dall)),' s'
 
         !----------------------------------------------------------------------!
-        ! set data weight
+        ! data weight
         ! datweight=0.0
         ! if (iso_inv) then
         !     thresholdVs=0.2
@@ -494,8 +491,7 @@ program SurfAniso
             close(88)
         endif
         !----------------------------------------------------------------------!
-        ! Setting with iteration.
-        ! After 1st iteration, use the res2Norm and Mnorm2 to set weight value in the next iteration.
+        ! Setting of iteration.
         !----------------------------------------------------------------------!
         ! A*x = b
         ! m       input      m, the number of rows in A. (data)
@@ -510,7 +506,8 @@ program SurfAniso
         !----------------------------------------------------------------------!
         nar1=nar
         lameGcs=weightGcs
-        lameVs=dnrm2(dall,cbst,1)**2/dall*weightVs
+        ! lameVs=dnrm2(dall,cbst,1)**2/dall*weightVs 
+        lameVs=weightVs
         count3=0
         if (iso_inv) then
             call TikhonovRegularization(nx, ny, nz, maxvp, dall, nar, rw, iw, col, count3, iso_inv, lameGcs, lameVs)
@@ -581,7 +578,7 @@ program SurfAniso
         !----------------------------------------------------------------------!
         ! Based on perturbation, construct isotropic or anisotropic velocity model
         ! For vsRela will be used in subroutine: CalSurfGAniso, it will be important to get a right value.
-        ! vsf initially comes from MOD, then updates from even iteration.
+        ! vsf initially comes from MOD, then can be updated after each iteration.
         if (iso_inv) then
             do k=1,nz-1
             do j=1,ny-2
@@ -679,7 +676,7 @@ program SurfAniso
         ! fist forward calculate the traveltime.
         ! Tdata: inversion used data: tobs- tref(iso)
         ! Calculate deltaT=deltaTvs+deltaTaa
-        ! Here restT=deltaT_in-deltaT_out---use the old GGc GGs
+        ! Here restT=deltaT_in-deltaT_out
         resbst=0
         fwdTvs=0
         fwdTaa=0
@@ -792,9 +789,9 @@ program SurfAniso
         ! output result model
         ! note: for the input Vs model is grid model (nz point)
         ! BUT, the inversion kernel and result is layer (nz-1 layer) model
-        ! for Gc,Gs  the input and result are both layer model, so the depth I set the lower depth as the output
-        ! for Vs, input is grid model, while the inversion result is layered model. For compare withe two Vs models,
-        !  I set the mid depth between the point as the depth index, and the real model use the average Vs.
+        ! for Gc,Gs, the input and result are both layer models, so I set the lower boundary depth as the output
+        ! for Vs, input is grid model, while the inversion result is layered model. 
+        !  I set the mid depth between the points as the depth index, and the output model uses the average Vs.
         write(66,*)'  -----------------------------------------------------------'
         write(*,*)  '  Program finishes successfully'
         write(66,*) '  Program finishes successfully'
