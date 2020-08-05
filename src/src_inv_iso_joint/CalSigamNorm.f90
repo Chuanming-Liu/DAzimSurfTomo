@@ -85,8 +85,8 @@ subroutine CalVsReslNorm(maxvp,dall,GVs,VsInv,datweight,Tdata,fwdTvs,resbst)
     res2Nm=dnrm2(dall,resbst,1)
     PreRes=sum(abs(per_res(1:dall)))/dall
 
-    write(6 ,'(a,2f10.1)') '  dVs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
-    write(66,'(a,2f10.1)') '  dVs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
+    write(6 ,'(a,2f12.3)') '  dVs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
+    write(66,'(a,2f12.3)') '  dVs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
     ! write(6,*) ' abs mean Res(Vs)/Res  (%)',PreRes*100
     ! write(66,*)' abs mean Res(Vs)/Res  (%)',PreRes*100
 end subroutine
@@ -144,8 +144,8 @@ subroutine CalGcsReslNorm(maxvp,dall,GGc,GGs, GcInv, GsInv, datweight,Tdata,fwdT
     resW2Nm=dnrm2(dall,resW,1)
     res2Nm=dnrm2(dall,resbst,1)
     PreRes=sum(abs(per_res(1:dall)))/dall
-    write(6 ,'(a,2f10.1)') '  Gcs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
-    write(66,'(a,2f10.1)') '  Gcs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
+    write(6 ,'(a,2f12.3)') '  Gcs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
+    write(66,'(a,2f12.3)') '  Gcs:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
     ! write(6,*) ' abs mean Res(aa)/Res  (%)',PreRes*100
     ! write(66,*)' abs mean Res(aa)/Res  (%)',PreRes*100
 end subroutine
@@ -207,8 +207,8 @@ subroutine CalReslNormJoint(maxvp, dall, GVs, GGc, GGs, VsInv, GcInv, GsInv, dat
     res2Nm=dnrm2(dall,resbst,1)
 
 
-    write(6 ,'(a,2f10.1)') '  All:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
-    write(66,'(a,2f10.1)') '  All:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
+    write(6 ,'(a,2f12.3)') '  All:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
+    write(66,'(a,2f12.3)') '  All:  ||(Gm-d)||^2  and ||W(Gm-d)||^2: ', res2Nm, resW2Nm
     write(66,'(a)')'  '
     write(6 ,'(a)')'  '
     ! analysis residual
@@ -278,8 +278,8 @@ subroutine Calmodel2Norm(nar1,nar,maxvp,count3,rw,col,dv,weight)
     ! enddo
     ! close(90)
 
-    write(6 ,'(a,2f10.1)') '  dVs:  ||Lm||^2      and ||wLm||^2    : ', Mnorm2, MwNorm2
-    write(66,'(a,2f10.1)') '  dVs:  ||Lm||^2      and ||wLm||^2    : ', Mnorm2, MwNorm2
+    write(6 ,'(a,2f12.3)') '  dVs:  ||Lm||^2      and ||wLm||^2    : ', Mnorm2, MwNorm2
+    write(66,'(a,2f12.3)') '  dVs:  ||Lm||^2      and ||wLm||^2    : ', Mnorm2, MwNorm2
 end subroutine
 
 subroutine Calmodel2NormJoint(nar1,nar,maxvp, NreVs, Nre, rw,col,dv, lameGcs, lameVs)
@@ -341,12 +341,12 @@ subroutine Calmodel2NormJoint(nar1,nar,maxvp, NreVs, Nre, rw,col,dv, lameGcs, la
     MwNorm2=dnrm2(Nre, LmWeight, 1)
 
 
-    write(6 ,'(a,2f10.1)') '  dVs:  ||Lm||^2   and   ||wLm||^2     : ', VsNorm2, VswNorm2
-    write(66,'(a,2f10.1)') '  dVs:  ||Lm||^2   and   ||wLm||^2     : ', VsNorm2, VswNorm2
-    write(6 ,'(a,2f10.1)') '  Gcs:  ||Lm||^2   and   ||wLm||^2     : ', GcsNorm2, GcswNorm2
-    write(66,'(a,2f10.1)') '  Gcs:  ||Lm||^2   and   ||wLm||^2     : ', GcsNorm2, GcswNorm2
-    write(6 ,'(a,2f10.1)') '  All:  ||Lm||^2   and   ||wLm||^2     : ', Mnorm2, MwNorm2
-    write(66,'(a,2f10.1)') '  All:  ||Lm||^2   and   ||wLm||^2     : ', Mnorm2, MwNorm2
+    write(6 ,'(a,2f12.3)') '  dVs:  ||Lm||^2   and   ||wLm||^2     : ', VsNorm2, VswNorm2
+    write(66,'(a,2f12.3)') '  dVs:  ||Lm||^2   and   ||wLm||^2     : ', VsNorm2, VswNorm2
+    write(6 ,'(a,2f12.3)') '  Gcs:  ||Lm||^2   and   ||wLm||^2     : ', GcsNorm2, GcswNorm2
+    write(66,'(a,2f12.3)') '  Gcs:  ||Lm||^2   and   ||wLm||^2     : ', GcsNorm2, GcswNorm2
+    write(6 ,'(a,2f12.3)') '  All:  ||Lm||^2   and   ||wLm||^2     : ', Mnorm2, MwNorm2
+    write(66,'(a,2f12.3)') '  All:  ||Lm||^2   and   ||wLm||^2     : ', Mnorm2, MwNorm2
     write(66,'(a)')'  '
     write(6 ,'(a)')'  '
 end subroutine

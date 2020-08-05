@@ -4,12 +4,12 @@ cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 surfphase_forward_RV3th.dat	     	 c: traveltime data file
 17 17 4                              c: nx ny nz (grid number in lat lon and depth direction)
 26.5  101.25                         c: goxd gozd (upper left point,[lat,lon])
-0.25 0.25                            c: dvxd dvzd (grid interval in lat:0 and lon direction)
+0.25 0.25                            c: dvxd dvzd (grid interval in lat and lon direction)
 2                                    c: sablayers (2~5)
 2.912 4.142                          c: minimum and maximum Vsv
 5000                                 c: max(sources, receivers)
 0.2                                  c: sparsity fraction
-20				    				 c: maximum of interation
+20				    				 c: maximum of iteration
 T                                    c: iso-mode (T: isotropic inversion; F: joint inversion)
 cccccccc control parameters
 240	           		                 c: smoothing of dVsv

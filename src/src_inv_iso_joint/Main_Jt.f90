@@ -188,9 +188,9 @@ program SurfAniso
         write(*,'(3i5)') nx,ny,nz
         write(*,*)'depth refined interval layer '
         write(*,'(f8.1)')minthk
-        write(*,*)'weight for Vs '
+        write(*,*)'smoothing for Vs '
         write(*,'(f8.1)')weightVs
-        write(*,*)'weight for Gc, Gs '
+        write(*,*)'smoothing for Gc, Gs '
         write(*,'(f8.1)')weightGcs
         write(*,*)'damp'
         write(*,'(f8.1)')damp
@@ -480,16 +480,16 @@ program SurfAniso
             enddo
         endif
         ! write out res for 1-th and final inversion
-        if ((iter .eq. 1) .or. (iter .eq. maxiter)) then
-            write(id,'(I2.2)') iter
-            filename = 'Traveltime_use_'//TRIM(id)//'th.dat'
-            open(88, file=filename)
-            write(88,'(a)') 'Dist(km)        T_obs(s)       T_forward(s)         Res(s)        weight        W_Res'
-            do i=1,dall
-                write(88,*) dist(i), obst(i), dsyn(i), Tdata(i), datweight(i), cbst(i)
-            enddo
-            close(88)
-        endif
+        ! if ((iter .eq. 1) .or. (iter .eq. maxiter)) then
+        !     write(id,'(I2.2)') iter
+        !     filename = 'Traveltime_use_'//TRIM(id)//'th.dat'
+        !     open(88, file=filename)
+        !     write(88,'(a)') 'Dist(km)        T_obs(s)       T_forward(s)         Res(s)        weight        W_Res'
+        !     do i=1,dall
+        !         write(88,*) dist(i), obst(i), dsyn(i), Tdata(i), datweight(i), cbst(i)
+        !     enddo
+        !     close(88)
+        ! endif
         !----------------------------------------------------------------------!
         ! Setting of iteration.
         !----------------------------------------------------------------------!

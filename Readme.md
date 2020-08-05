@@ -1,6 +1,8 @@
 ## DAzimSurfTomo
 
-DAzimSurfTomo is a package of direct inversion of surface wave for 3-D isotropic Vsv and azimuthal anisotropy without conventional tomography. Please refer to [Liu et al. (2019)](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018JB016920) for the details of the method. The [fast marching method](http://rses.anu.edu.au/~nick/waves.html) (Rawlinson et al., 2004) is used to compute period-dependent surface wave traveltime and ray paths. The forward computation of surface wave is based on the Thomson-Haskell method (the [code of Herrman](http://www.eas.slu.edu/eqc/eqccps.html)) (Herrmann, 2013). The inversion frame is similar to [DSurfTomo](https://github.com/HongjianFang/DSurfTomo) (Fang et al. 2015) for isotropic Vs inversion with the same initial model and input data format.  
+[DAzimSurfTomo](https://github.com/Chuanming-Liu/DAzimSurfTomo) is a package of direct inversion of surface wave for 3-D isotropic Vsv and azimuthal anisotropy without conventional tomography. Please refer to [Liu et al. (2019)](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018JB016920) for the details of the method. The [fast marching method](http://rses.anu.edu.au/~nick/waves.html) (Rawlinson et al., 2004) is used to compute period-dependent surface wave traveltime and ray paths. The forward computation of surface wave is based on the Thomson-Haskell method (the [code of Herrman](http://www.eas.slu.edu/eqc/eqccps.html)) (Herrmann, 2013). The inversion frame is similar to [DSurfTomo](https://github.com/HongjianFang/DSurfTomo) (Fang et al. 2015) for isotropic Vs inversion with the same initial model and input data format.  
+
+Github: https://github.com/Chuanming-Liu/DAzimSurfTomo
 
 Please check the [manual](https://github.com/Chuanming-Liu/DAzimSurfTomo/blob/master/doc/Manual_DAzimSurfTomo_V2.0.md) in ./doc for usage.
 

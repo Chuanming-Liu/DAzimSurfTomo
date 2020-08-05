@@ -9,10 +9,10 @@ China_YN_Rayleigh_RS_5-40s.dat     		   c: data file
 3.0  5.0                            	   c: minimum velocity, maximum velocit
 5000                                       c: (maxmum of the record number for one station)
 0.2                                        c: sparsity fraction
-5								  		   c: maxmum of interation of the inversion
+5								  		   c: maxmum of iteration of the inversion
 F                                    	   c: iso-mod
 cccccccccc control parameters
-60		           		                   c: smoothing of Vs
+20		           		                   c: smoothing of Vs
 30                                         c: smoothing of Gc, Gs
 0		           		                   c: damp (default: 0) 
 cccccccccc periods
