@@ -188,11 +188,11 @@ program SurfAniso
         write(*,'(3i5)') nx,ny,nz
         write(*,*)'depth refined interval layer '
         write(*,'(f8.1)')minthk
-        write(*,*)'smoothing for Vs '
+        write(*,*)'smoothing for dVsv '
         write(*,'(f8.1)')weightVs
         write(*,*)'smoothing for Gc, Gs '
         write(*,'(f8.1)')weightGcs
-        write(*,*)'damp'
+        write(*,*)'damping'
         write(*,'(f8.1)')damp
 
         ! write(*,*)' Regularization Type: (T) 1st order Tikhonov ;(F) Gaussian'
