@@ -8,7 +8,7 @@ Surfphase_RV3_5_40s_1s.dat	 	      c: Blank traveltime data file (only paths are
 5000                                c: Maximum number of sources or receivers
 2                                   c: Number of vertical sublayers (range: 2–5)
 0.2                                 c: Sparsity fraction
-F         				   			          c: Output raypaths? (T = yes, F = no)
+F                                   c: Output raypaths? (T = yes, F = no)
 36                                  c: Number of periods (kmaxRc)
 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40     c: Periods (in seconds)
-0			         			                c: Noise level (e.g., 0.5 = 0.5 s)
+0	                                  c: Noise level (e.g., 0.5 = 0.5 s)
